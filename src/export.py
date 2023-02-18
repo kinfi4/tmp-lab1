@@ -12,8 +12,11 @@ def recreate_tables(engine: Engine) -> None:
     with engine.connect() as conn:
         tbl: Table
         for tbl in Base.metadata.sorted_tables:
-            conn.execute(tbl.delete())
-            conn.commit()
+            try:
+                conn.execute(tbl.delete())
+                conn.commit()
+            except Exception:
+                pass
 
     Base.metadata.create_all(engine)
 
@@ -29,4 +32,6 @@ def _export_repository(from_repo: IRepository, to_repo: IRepository) -> None:
     records = from_repo.get_all()
 
     for record in records:
+        record.pop("_sa_instance_state")
+
         to_repo.add(record)
