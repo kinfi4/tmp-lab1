@@ -1,4 +1,4 @@
-from repositories.abstract import IRepository
+from src.repositories.abstract import IRepository
 from src.tables import Order
 
 

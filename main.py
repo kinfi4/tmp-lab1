@@ -1,10 +1,16 @@
 from src.ui import CustomersWindow
+from src.export import recreate_tables
 
-from export import export_data, recreate_tables
+
+def _initialize_database():
+    pass
+
 
 if __name__ == "__main__":
 
     window = CustomersWindow()
+    window.run()
+
     recreate_tables(window._mysql_engine)
 
     window._customer_repository.add({"id": 1, "full_name": "Nick", "email": "espozito@dog.com"})
@@ -14,4 +20,3 @@ if __name__ == "__main__":
     window._product_repository.add({"id": 2, "name": "Hog", "price": 15, "description":"Hog for farming"})
 
     window._order_repository.add({"id": 1, "customer_id": 1, "product_id": 1, "qty": 1})
-    window.run()

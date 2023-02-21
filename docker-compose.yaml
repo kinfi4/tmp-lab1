@@ -27,7 +27,7 @@ services:
       - mysql:/var/lib/mysql
     restart: always
     ports:
-      - "3366:3306"
+      - "3306:3306"
 
 volumes:
     postgres:

@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/kinfi4/python/kpi/django-backend/lab1/env"
+VIRTUAL_ENV="/home/kinfi4/python/kpi/django-backend/tmp-lab1/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

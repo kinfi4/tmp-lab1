@@ -30,7 +30,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/kinfi4/python/kpi/django-backend/lab1/env"
+set -gx VIRTUAL_ENV "/home/kinfi4/python/kpi/django-backend/tmp-lab1/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

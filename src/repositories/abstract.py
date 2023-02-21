@@ -4,7 +4,7 @@ from typing import Any
 from sqlalchemy import Engine, update
 from sqlalchemy.orm import Session
 
-from tables import Base
+from src.tables import Base
 
 
 class IRepository(ABC):

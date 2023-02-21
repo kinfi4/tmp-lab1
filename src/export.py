@@ -1,8 +1,8 @@
 from sqlalchemy import Engine, Table
 
-from repositories.abstract import IRepository
-from tables import Base
-from repositories import ProductRepository, CustomerRepository, OrderRepository
+from src.repositories.abstract import IRepository
+from src.tables import Base
+from src.repositories import ProductRepository, CustomerRepository, OrderRepository
 
 
 _PROJECT_REPOSITORIES = [ProductRepository, CustomerRepository, OrderRepository]
@@ -15,7 +15,7 @@ def recreate_tables(engine: Engine) -> None:
             try:
                 conn.execute(tbl.delete())
                 conn.commit()
-            except Exception:
+            except Exception:  # we use Exception class here, because error may differ from one driver to another
                 pass
 
     Base.metadata.create_all(engine)

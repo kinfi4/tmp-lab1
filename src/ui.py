@@ -1,14 +1,16 @@
+from typing import Any
+
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.ttk import Treeview
-
-from repositories import ProductRepository, CustomerRepository, OrderRepository
-from engines import mysql_engine_factory, sqlite_engine_factory, postgres_engine_factory
-from export import export_data
-
 from sqlalchemy.orm import sessionmaker
 
-_WINDOW_SIZE = "1000x640"
+from src.repositories import ProductRepository, CustomerRepository, OrderRepository
+from src.engines import mysql_engine_factory, sqlite_engine_factory, postgres_engine_factory
+from src.export import export_data
+
+
+_WINDOW_SIZE = "1200x640"
 
 _CUSTOMERS_COLUMNS = ("id", "full_name", "email")
 CUSTOMER_COLUMNS_SIZE = (25, 150, 200)
@@ -26,7 +28,7 @@ BACKGROUND = "azure3"
 FOREGROUND = "azure2"
 
 
-def is_float(value):
+def is_float(value: Any) -> bool:
     """check whether it's float but also not throw error when it's string"""
     try:
         return isinstance(float(value), float)
@@ -34,7 +36,7 @@ def is_float(value):
         return False
 
 
-def is_integer(value):
+def is_integer(value: Any) -> bool:
     """check whether it can be an int but also not throw error when it's string"""
     try:
         return isinstance(int(value), int)
@@ -190,7 +192,8 @@ class CustomersWindow:
         # if everything is filled
         else:
             self._customer_repository.add(
-                {"full_name": self.full_name_entry.get(), "email": self.email_entry.get()})
+                {"full_name": self.full_name_entry.get(), "email": self.email_entry.get()}
+            )
 
             # showing clear new window
             self.initialize_menu()

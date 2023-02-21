@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, Engine
 
-from config import MYSQL_URL, POSTGRES_URL, SQLITE_URL
+from src.config import MYSQL_URL, POSTGRES_URL, SQLITE_URL
 
 
 def mysql_engine_factory() -> Engine:
