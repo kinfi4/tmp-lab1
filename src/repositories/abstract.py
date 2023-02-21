@@ -37,3 +37,7 @@ class IRepository(ABC):
     def get_all(self) -> list[dict[str, Any]]:
         with Session(self._engine) as session:
             return [row.__dict__ for row in session.query(self._table_obj).all()]
+
+    def get_one(self, _id: int) -> dict[str, Any]:
+        with Session(self._engine) as session:
+            return session.query(self._table_obj).get(_id)
