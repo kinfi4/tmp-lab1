@@ -14,9 +14,7 @@ class Customer(Base):
 
 class Product(Base):
     __tablename__ = "product"
-    __table_args__ = (
-        sq.CheckConstraint("price > 0"),
-    )
+    __table_args__ = (sq.CheckConstraint("price > 0"),)
 
     id = sq.Column(sq.Integer, primary_key=True)
     name = sq.Column(sq.String(255), nullable=False)
